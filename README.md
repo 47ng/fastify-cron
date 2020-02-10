@@ -27,7 +27,8 @@ $ npm i fastify-cron
 
 ## Usage
 
-Register the plugin with your Fastify server:
+Register the plugin with your Fastify server, and define a list of jobs to be
+created:
 
 ```ts
 import Fastify from 'fastify'
@@ -46,7 +47,7 @@ server.register(fastifyCron, {
       cronTime: '0 0 * * *', // Everyday at midnight UTC
 
       // Note: the callbacks (onTick & onComplete) take the server
-      // as an argument, as opposed to nothing in node-cron's API:
+      // as an argument, as opposed to nothing in the node-cron API:
       onTick: async server => {
         await server.db.runSomeCleanupTask()
       }
@@ -60,7 +61,6 @@ server.listen(() => {
 })
 ```
 
-At plugin registration time, you can define a list of jobs to be created.
 You can create other jobs later with `server.cron.createJob`:
 
 ```ts
@@ -89,7 +89,7 @@ fooJob.start()
 Otherwise, you can access the list of jobs ordered by order of creation
 at `server.cron.jobs`.
 
-> Warning: if you mutate that list, you must take responsibility for manually
+> **Warning**: if you mutate that list, you must take responsibility for manually
 > shutting down the jobs you pull out.
 
 ## Cron Jobs Lifecycle
@@ -103,8 +103,8 @@ Fastify does not provide one).
 
 ### Starting jobs
 
-The recommended moment to start your jobs is when the server is listening.
-This way you can still create test servers without cron jobs running around:
+The recommended moment to start your jobs is when the server is listening
+(this way you can create test servers without cron jobs running around) :
 
 ```ts
 const server = Fastify()
@@ -122,7 +122,7 @@ server.listen(() => {
 
 If you want to start a job immediately (synchronously) after its creation,
 set the `start` property to `true` (this is part of
-[`cron`'s API](https://github.com/kelektiv/node-cron#api)):
+the [`cron` API](https://github.com/kelektiv/node-cron#api)):
 
 ```ts
 // When registering the plugin:
@@ -136,9 +136,7 @@ server.register(fastifyCron, {
   ]
 })
 
-// You can also act directly on the job object being returned.
-// However calls to createJob can only happen one the plugin is registered,
-// and by default the job would have already started on its own.
+// You can also act directly on the job object being returned:
 const job = server.cron.createJob({ cronTime: '0 0 * * *', onTick: () => {} })
 job.start()
 ```
