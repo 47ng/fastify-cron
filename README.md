@@ -7,7 +7,7 @@
 [![Average issue resolution time](https://isitmaintained.com/badge/resolution/47ng/fastify-cron.svg)](https://isitmaintained.com/project/47ng/fastify-cron)
 [![Number of open issues](https://isitmaintained.com/badge/open/47ng/fastify-cron.svg)](https://isitmaintained.com/project/47ng/fastify-cron)
 
-Run [cron](https://en.wikipedia.org/wiki/Cron) jobs alongside your [Fastify](https://www.fastify.io) server.
+Run [cron](https://www.npmjs.com/package/cron) jobs alongside your [Fastify](https://www.fastify.io) server.
 
 While running cron jobs in the same process as a service is not the best
 recommended practice (according to the [Twelve Factor App](https://12factor.net/processes)),
@@ -29,6 +29,9 @@ $ npm i fastify-cron
 
 Register the plugin with your Fastify server, and define a list of jobs to be
 created:
+
+> _If (like me) you always forget the syntax for cron times,
+> check out [crontab.guru](https://crontab.guru/)._
 
 ```ts
 import Fastify from 'fastify'
