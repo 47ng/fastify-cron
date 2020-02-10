@@ -1,6 +1,6 @@
 {
   "name": "fastify-cron",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Run cron jobs alongside your Fastify server",
   "main": "dist/index.js",
   "license": "MIT",
