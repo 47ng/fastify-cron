@@ -9,17 +9,23 @@ script:
   - yarn ci
 
 deploy:
+  edge: true
   provider: npm
   email: accounts@francoisbest.com
+  api_key:
+    secure: h/k9yuqwcjTdKxMxfvJJ3XSB7xfXrDH0oXTen56K3oI/yorhODWRa3nVk8Rwb3bz1guwUphpHJFlWsu5MmaiM3BmoG9vjtAEC1BCygDNNklX7Ir6JQiicfgI281+dBadTatz/S6vKw6cW0IMj7F/dqyK3iTDnRyql7ts3BtxwFvfUzFdamBoYUhH76HsE0YKJksycOEPdbb53oCHjbKuWcjf+TKfp90w8Pvmgm7UVatJtHMXVnOShW2cb3IfKQC9kwzuaNv2vccLUxSNXoJvYOo/KaXuwXf3WMfX9qlZX9ob/SWHhnQPY+pGnrc9TP14VwC0KLykF5DEccctYBgpSTOpkzw76MyzHg6s8WMDn2aX5Ms7OzAwqoidtrAnVjxK7hDn1gO6bOtKz9QvRGhDZlCBe3zvOT30Oe04+4NKEi2xsFCkhvdmuzNdLYNE8zshO2C3zAnuKI+PzrMFRaxn4tUPaIPO+aWqY+TI0QTveN6v9AHH02QLtacXM6aZA9dxiB7+qnuBB+ewHxtDAtZ1ZcTe7pRQQanZBpp798a67oqTLNlGbp/j8h6mTFXqq8i5vRCMBwi7gU72ZaUZNi4BDctmcc5H1ljbRUXNExEu77r3CAehJ23yufAvwoU2OfIu3qxfEhmjYTswSJ5ETD2SZn/o4QYT0hbhAA917wJQmMo=
   on:
     tags: true
   skip_cleanup: true
 
 notifications:
   slack:
+    rooms:
+      secure: SBsUyoGszoOM5HBiZ1IgO8klJaXdnYiUh1zG4IlcgI4WsLT2rGFE/g5cxrbrNmtouKtjR4DW6kLuGB1icM8P6CUVFN/3pRRlnt5O+WiURwhf8z7h3B1LghOXczS2kX/JZo9N1isF5by1dZAOUBarxB29XfSLt+xRAf0MSzShr95QzQVuwZkY9idEyrz1ZVuM5/Gi7S6yV4FFkKLf8LzNCycW14cUyZD/aDvDCRYs8lYiByHKB2kpA0r0i1hqsQnYGpTE+1v1Jap40tex23euuFuv6D6VpjYiAO6Oij/c5wrffgra/No5K2NOY6hrKrLUv3tRiHbrc3NsbRv/YmhNJQ00K2lRpKhNDZxNgS7deCv4Neld7Mt42ELz2YnAXQ0sKxcL2phWguzSUgJHGkGLBlXPGn8t6+SZ8chVNPWptZuaxx7BxdNOTe1ySLPAzsWUJoW2e2MBJyCs8KeLEQuSNFYdCMqLobB77BAktTrzE7x5zLR2wjOO62ergK6FWQyCI4SlN3ib8wQkqZzK/rw0wLL4+PE4b6tnnRle1DNZhLdzPGCmJJ1r1Ca/CKME8CUnMWAgq3cdi9fBXvh9PSRZTMHyh6rl4P2VMtnbI1jE9QIaRXmHVQTtkQcSJ0pNo3UPv7l8UEfpgl7lM4vZ35Gr9fm9iv5eeT1Ssa0QXE3mz5w=
     on_success: always
     on_failure: always
     on_error: always
     template:
-      - 'Build %{result}: %{repository_slug}'
-      - 'Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) on %{branch} by %{author} %{result} in %{duration}'
+      - "Build %{result}: %{repository_slug}"
+      - Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) on %{branch}
+        by %{author} %{result} in %{duration}

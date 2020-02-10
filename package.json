@@ -1,7 +1,7 @@
 {
-  "name": "typescript-library-starter",
+  "name": "fastify-cron",
   "version": "0.0.1",
-  "description": "Template repository for TypeScript libraries",
+  "description": "Run cron jobs alongside your Fastify server",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {
@@ -11,11 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/47ng/typescript-library-starter"
+    "url": "https://github.com/47ng/fastify-cron"
   },
   "keywords": [
-    "boilerplate",
-    "template"
+    "fastify",
+    "fastify-plugin",
+    "cron"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,11 +30,18 @@
     "build": "run-s build:clean build:ts",
     "ci": "run-s test build"
   },
+  "dependencies": {
+    "@types/cron": "^1.7.1",
+    "cron": "^1.8.2",
+    "fastify-plugin": "^1.6.0"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.0",
+    "fastify": "^2.12.0",
     "husky": "^4.2.1",
     "jest": "^25.1.0",
+    "jest-extended": "^0.11.5",
     "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "ts-jest": "^25.2.0",
