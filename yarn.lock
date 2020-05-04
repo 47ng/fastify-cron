@@ -1744,9 +1744,9 @@ fastify-plugin@^1.6.0:
     semver "^6.3.0"
 
 fastify@^2.12.0:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/fastify/-/fastify-2.13.1.tgz#38d9a5b030ddbc472b4ab756b584c5f0cc538593"
-  integrity sha512-ssh4CneRqWqYeHun03XicIcYxWXLEam5V9wHYSYm22yvSm91SnTzzajxs1w135rdZnT+VJ1MwOfToqwR6G5MoA==
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-2.14.0.tgz#296c300884bf9dbf403bac1723f3ae0f0325dfe4"
+  integrity sha512-uofJOU9Zf20iklDrACZZVe+qef6dswOe8IUnxUdHTY9QfHv301MgPxodvJFiRE2WAse7YrWr4sI5Lx6YIAuUAA==
   dependencies:
     abstract-logging "^2.0.0"
     ajv "^6.12.0"
