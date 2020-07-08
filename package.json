@@ -22,7 +22,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --verbose --detectOpenHandles --forceExit",
     "test:watch": "jest --verbose --watch",
     "dev": "nodemon -e ts,.env -w .env -w . -x 'run-s build:ts test'",
     "build:clean": "rm -rf ./dist",

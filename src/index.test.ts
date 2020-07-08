@@ -5,7 +5,7 @@ import fastifyCron from './index';
 describe('Creating jobs at plugin registration time', () => {
   test('no config', async () => {
     const server = Fastify({ logger: false });
-    server.register(fastifyCron);
+    await server.register(fastifyCron);
     await server.ready();
     expect(server.cron.jobs).toBeArrayOfSize(0);
   });
@@ -13,7 +13,7 @@ describe('Creating jobs at plugin registration time', () => {
   test('jobs are not started after plugins are loaded', async () => {
     const server = Fastify({ logger: false });
     const spy = jest.fn();
-    server.register(fastifyCron, {
+    await server.register(fastifyCron, {
       jobs: [
         {
           cronTime: '* * * * *',
@@ -29,7 +29,7 @@ describe('Creating jobs at plugin registration time', () => {
   test('start job when startWhenReady = true', async () => {
     const server = Fastify({ logger: false });
     const spy = jest.fn();
-    server.register(fastifyCron, {
+    await server.register(fastifyCron, {
       jobs: [
         {
           cronTime: '* * * * *',
@@ -46,7 +46,7 @@ describe('Creating jobs at plugin registration time', () => {
   test('retrieve job by name', async () => {
     const server = Fastify({ logger: false });
     const spy = jest.fn();
-    server.register(fastifyCron, {
+    await server.register(fastifyCron, {
       jobs: [
         {
           name: 'foo',
@@ -66,7 +66,7 @@ describe('Creating jobs manually after registration', () => {
   test('jobs created after `ready` event should start automatically', async () => {
     const spy = jest.fn();
     const server = Fastify({ logger: false });
-    server.register(fastifyCron);
+    await server.register(fastifyCron);
     await server.ready();
     server.cron.createJob({
       cronTime: '* * * * *',
@@ -84,7 +84,7 @@ describe('Creating jobs manually after registration', () => {
   test('start job when startWhenReady = true', async () => {
     const server = Fastify({ logger: false });
     const spy = jest.fn();
-    server.register(fastifyCron);
+    await server.register(fastifyCron);
     await server.ready(); // Needed to have the decoration
     server.cron.createJob({
       cronTime: '* * * * *',
@@ -100,7 +100,7 @@ describe('Creating jobs manually after registration', () => {
     jest.useFakeTimers();
     const server = Fastify({ logger: false });
     const spy = jest.fn();
-    server.register(fastifyCron);
+    await server.register(fastifyCron);
     await server.ready();
     server.cron.createJob({
       name: 'foo',
