@@ -1,6 +1,6 @@
 {
   "name": "fastify-cron",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Run cron jobs alongside your Fastify server",
   "main": "dist/index.js",
   "license": "MIT",
@@ -31,11 +31,11 @@
     "ci": "run-s test build"
   },
   "dependencies": {
+    "@types/cron": "^1.7.2",
     "cron": "^1.8.2",
     "fastify-plugin": "^2.0.0"
   },
   "devDependencies": {
-    "@types/cron": "^1.7.2",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.0.19",
     "fastify": "^3.0.0",
