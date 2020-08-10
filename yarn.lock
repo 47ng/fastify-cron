@@ -1757,9 +1757,9 @@ fastify-error@^0.1.0:
   integrity sha512-jyCEc3VPEc8/PUwzDQAM2JlXLK2BG6L19mMJzbGij0TfdY1sHF9pCnnAn6Vcoi84TMTBOJynNDQUMUz6cjRmBw==
 
 fastify-plugin@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.1.0.tgz#fda306356104e0549959e2a932136e28e76091a6"
-  integrity sha512-5quClufwUb304h4ZiwN7tJWvkucUEuFxkK+BLPDKH8fP5lIB0Hf9tzHd56wy1Xu3FMAOP8rhqiOlSslRAJtb7Q==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.3.0.tgz#ef09432fd099e7cbd45f9612efc22da1da213fea"
+  integrity sha512-FOfgK3ORSXMl9AbXmkADH2gZ4qiegcYuJfDxKNlL0jQKLndbXYoBjifinYkSi2mTewDwu/LMlAGe4PVyhLpSXA==
   dependencies:
     semver "^7.3.2"
 
