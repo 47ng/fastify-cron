@@ -51,11 +51,11 @@ server.register(fastifyCron, {
 
       // Note: the callbacks (onTick & onComplete) take the server
       // as an argument, as opposed to nothing in the node-cron API:
-      onTick: async (server) => {
+      onTick: async server => {
         await server.db.runSomeCleanupTask()
-      },
-    },
-  ],
+      }
+    }
+  ]
 })
 
 server.listen(() => {
@@ -70,7 +70,7 @@ You can create other jobs later with `server.cron.createJob`:
 server.cron.createJob({
   // Same properties as above
   cronTime: '0 0 * * *', // Everyday at midnight UTC
-  onTick: () => {},
+  onTick: () => {}
 })
 ```
 
@@ -81,7 +81,7 @@ them names:
 server.cron.createJob({
   name: 'foo',
   cronTime: '0 * * * *', // Every hour at X o'clock
-  onTick: () => {},
+  onTick: () => {}
 })
 
 // Later on, retrieve the job:
@@ -115,7 +115,7 @@ const server = Fastify()
 server.register(fastifyCron, {
   jobs: [
     // ...
-  ],
+  ]
 })
 
 server.listen(() => {
@@ -134,9 +134,9 @@ server.register(fastifyCron, {
     {
       cronTime: '0 0 * * *',
       onTick: () => {},
-      start: true, // Start job immediately
-    },
-  ],
+      start: true // Start job immediately
+    }
+  ]
 })
 
 // You can also act directly on the job object being returned:
@@ -155,12 +155,12 @@ server.register(fastifyCron, {
     {
       name: 'foo',
       cronTime: '0 0 * * *',
-      onTick: (server) => {
+      onTick: server => {
         server.db.doStruff()
       },
-      startWhenReady: true,
-    },
-  ],
+      startWhenReady: true
+    }
+  ]
 })
 ```
 
@@ -191,4 +191,6 @@ Possible issues (ticked if confirmed and unhandled):
 
 ## License
 
-[MIT](https://github.com/47ng/fastify-cron/blob/master/LICENSE) - Made with ❤️ by [François Best](https://francoisbest.com) - [Donations welcome](https://paypal.me/francoisbest?locale.x=fr_FR) 🙏
+[MIT](https://github.com/47ng/fastify-cron/blob/master/LICENSE) - Made with ❤️ by [François Best](https://francoisbest.com)
+
+Using this package at work ? [Sponsor me](https://github.com/sponsors/franky47) to help with support and maintenance.
