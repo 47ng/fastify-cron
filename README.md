@@ -1,19 +1,25 @@
-# `fastify-cron`
+<h1 align="center"><code>fastify-cron</code></h1>
+
+<div align="center">
 
 [![NPM](https://img.shields.io/npm/v/fastify-cron?color=red)](https://www.npmjs.com/package/fastify-cron)
 [![MIT License](https://img.shields.io/github/license/47ng/fastify-cron.svg?color=blue)](https://github.com/47ng/fastify-cron/blob/master/LICENSE)
-[![Travis CI Build](https://img.shields.io/travis/com/47ng/fastify-cron.svg)](https://travis-ci.com/47ng/fastify-cron)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=47ng/fastify-cron)](https://dependabot.com)
-[![Average issue resolution time](https://isitmaintained.com/badge/resolution/47ng/fastify-cron.svg)](https://isitmaintained.com/project/47ng/fastify-cron)
-[![Number of open issues](https://isitmaintained.com/badge/open/47ng/fastify-cron.svg)](https://isitmaintained.com/project/47ng/fastify-cron)
+[![Continuous Integration](https://github.com/47ng/fastify-cron/workflows/Continuous%20Integration/badge.svg?branch=next)](https://github.com/47ng/fastify-cron/actions)
+[![Coverage Status](https://coveralls.io/repos/github/47ng/fastify-cron/badge.svg?branch=next)](https://coveralls.io/github/47ng/fastify-cron?branch=next)
 
-Run [cron](https://www.npmjs.com/package/cron) jobs alongside your [Fastify](https://www.fastify.io) server.
+</div>
+
+<p align="center">
+  Run <a href="https://www.npmjs.com/package/cron">cron</a> jobs alongside your <a href="https://www.fastify.io">Fastify</a> server.
+</p>
+
+<br/>
 
 While running cron jobs in the same process as a service is not the best
 recommended practice (according to the [Twelve Factor App](https://12factor.net/processes)),
 it can be useful when prototyping and when implementing low-criticality features
 on single-instance services (remember that when scaling horizontally, all your
-jobs may run in parallel too).
+jobs may run in parallel too, see [Scaling](#scaling)).
 
 There is an existing discussion about this in [`fastify/fastify#1312`](https://github.com/fastify/fastify/issues/1312).
 
@@ -178,6 +184,27 @@ test('some test', () => {
   // Stop all cron jobs to let the test runner exit cleanly:
   server.cron.stopAllJobs()
 })
+```
+
+## Scaling
+
+When horizontal-scaling your applications (running multiple identical instances
+in parallel), you'll probably want to make sure only one instance runs the cron
+tasks.
+
+If you have a way to uniquely identify an instance (eg: a number passed in the
+environment), you could use that to only enable crons for this instance.
+
+Example for [Clever Cloud](https://www.clever-cloud.com/doc/develop/env-variables/#what-is-the-instance_number-variable-used-for):
+
+```ts
+if (process.env.INSTANCE_NUMBER === 0) {
+  server.register(fastifyCron, {
+    jobs: [
+      // ...
+    ]
+  })
+}
 ```
 
 ## Compatibility Notes

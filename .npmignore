@@ -3,7 +3,8 @@ tsconfig.json
 .env
 .volumes/
 yarn-error.log
-.github/**
-src/**
+.github/
+src/
 coverage/
 .dependabot/
+.husky/

@@ -1,5 +1,5 @@
-import 'jest-extended'
 import Fastify from 'fastify'
+import 'jest-extended'
 import fastifyCron from './index'
 
 describe('Creating jobs at plugin registration time', () => {
@@ -97,7 +97,7 @@ describe('Creating jobs manually after registration', () => {
   })
 
   test('retrieve job by name', async () => {
-    jest.useFakeTimers()
+    jest.useFakeTimers('legacy')
     const server = Fastify({ logger: false })
     const spy = jest.fn()
     await server.register(fastifyCron)
