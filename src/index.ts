@@ -27,8 +27,10 @@ export interface CronDecorator {
   stopAllJobs: () => void
 }
 
+export type FalsyValue = undefined | null | false
+
 export interface Config {
-  jobs?: Params[]
+  jobs?: (Params | FalsyValue)[]
 }
 
 const plugin: FastifyPluginAsync<Config> = async function fastifyCronPlugin(
@@ -66,7 +68,9 @@ const plugin: FastifyPluginAsync<Config> = async function fastifyCronPlugin(
     }
   }
   for (const params of opts.jobs || []) {
-    decorator.createJob(params)
+    if (params) {
+      decorator.createJob(params)
+    }
   }
 
   server.decorate('cron', decorator)

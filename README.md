@@ -207,6 +207,26 @@ if (process.env.INSTANCE_NUMBER === 0) {
 }
 ```
 
+## Conditionally running jobs
+
+You may want to run certain jobs in development only, or under other conditions.
+
+`fastify-cron` will ignore any falsy values in the `jobs` array, so you can do:
+
+```ts
+server.register(fastifyCron, {
+  jobs: [
+    process.env.ENABLE_DEV_JOB === 'true' && {
+      name: 'devJob',
+      cronTime: '* * * * *',
+      onTick: server => {
+        // ...
+      }
+    }
+  ]
+})
+```
+
 ## Compatibility Notes
 
 Some compatibility issues may arise with the [`cron` API](https://github.com/kelektiv/node-cron#api).

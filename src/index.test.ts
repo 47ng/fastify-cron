@@ -112,4 +112,21 @@ describe('Creating jobs manually after registration', () => {
     expect(job).toBeDefined()
     expect(job!.running).toBeFalsy()
   })
+
+  test('falsy values are ignored in the jobs array', async () => {
+    const server = Fastify({ logger: false })
+    const spy = jest.fn()
+    await server.register(fastifyCron, {
+      jobs: [
+        false && {
+          name: 'foo',
+          cronTime: '* * * * *',
+          onTick: spy
+        }
+      ]
+    })
+    await server.ready()
+    const job = server.cron.getJobByName('foo')
+    expect(job).toBeUndefined()
+  })
 })
