@@ -37,14 +37,14 @@
     "fastify-plugin": "^3.0.0"
   },
   "peerDependencies": {
-    "fastify": "^3.24.1"
+    "fastify": "^4.1.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^15.0.0",
     "@types/jest": "^27.0.3",
     "@types/node": "^17.0.8",
     "commitlint": "^15.0.0",
-    "fastify": "^3.24.1",
+    "fastify": "^4.1.0",
     "husky": "7.x",
     "jest": "^27.4.3",
     "jest-extended": "^1.2.0",
