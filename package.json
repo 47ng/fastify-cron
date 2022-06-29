@@ -42,7 +42,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^15.0.0",
     "@types/jest": "^27.0.3",
-    "@types/node": "^17.0.8",
+    "@types/node": "^18.0.0",
     "commitlint": "^15.0.0",
     "fastify": "^4.1.0",
     "husky": "7.x",
