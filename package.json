@@ -32,8 +32,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@types/cron": "^1.7.3",
-    "cron": "^1.8.2",
+    "@types/cron": "^2.0.0",
+    "cron": "^2.0.0",
     "fastify-plugin": "^3.0.0"
   },
   "peerDependencies": {
