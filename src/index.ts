@@ -79,5 +79,5 @@ const plugin: FastifyPluginAsync<Config> = async function fastifyCronPlugin(
 
 export default fp(plugin, {
   name: 'fastify-cron',
-  fastify: '4.x'
+  fastify: '5.x'
 })

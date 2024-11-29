@@ -34,24 +34,24 @@
   "dependencies": {
     "@types/cron": "^2.0.0",
     "cron": "^2.0.0",
-    "fastify-plugin": "^3.0.0"
+    "fastify-plugin": "^5.0.1"
   },
   "peerDependencies": {
-    "fastify": "^4.1.0"
+    "fastify": "^5.1.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.3",
     "@types/jest": "^27.0.3",
     "@types/node": "^18.0.0",
     "commitlint": "^15.0.0",
-    "fastify": "^4.1.0",
+    "fastify": "^5.1.0",
     "husky": "8.x",
     "jest": "^27.4.3",
     "jest-extended": "^2.0.0",
     "npm-run-all": "^4.1.5",
     "ts-jest": "^27.1.0",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
+    "typescript": "^5.7.2"
   },
   "jest": {
     "verbose": true,
