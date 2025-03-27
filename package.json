@@ -37,7 +37,7 @@
     "fastify-plugin": "^3.0.0"
   },
   "peerDependencies": {
-    "fastify": "^4.1.0"
+    "fastify": "^4.1.0 || ^5.0.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.3",
