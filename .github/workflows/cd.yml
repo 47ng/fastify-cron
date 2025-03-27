@@ -11,20 +11,11 @@ jobs:
     name: Continuous Delivery
     runs-on: ubuntu-latest
     steps:
-      - id: yarn-cache
-        name: Get Yarn cache path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e
         with:
-          node-version: 14.x
-      - uses: actions/cache@c3f1317a9e7b1ef106c153ac8c0f00fed3ddbc0d
-        name: Load Yarn cache
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: 22.x
+          cache: "yarn"
       - run: yarn install --ignore-scripts
         name: Install dependencies
       - run: yarn build
